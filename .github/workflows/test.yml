@@ -25,8 +25,8 @@ jobs:
         uses: ./
         id: createRelease
         with:
-          tag_name: 'test-tag-del'
-          release_name: 'relase-name'
+          tag_name: 'test-tag-del-2'
+          release_name: 'relase-name-2'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Get the output time
