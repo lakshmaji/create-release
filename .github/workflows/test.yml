@@ -19,7 +19,15 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v3
-    - uses: ./
-      with:
-        milliseconds: 1000
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: create release action step
+        uses: ./
+        id: createRelease
+        with:
+          tag_name: 'test-tag-del-2'
+          release_name: 'relase-name-2'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Get the output time
+        run: echo "The time was ${{ steps.createRelease.outputs.id }}"
